@@ -106,11 +106,11 @@ public class Server implements Runnable {
     serverSocket.receive(receiveDatagram);
     receiveBuffer = receiveDatagram.getData();
 
-    String port = String.valueOf(receiveDatagram.getPort());
-
     var fullMessage = B64.decode(new String(receiveBuffer));
     receiveHeader = fullMessage.split("/body=")[0];
     var message = fullMessage.split("/body=")[1];
+
+    String port = receiveHeader.split(":")[0];
 
     if (!clients.containsKey(port)) {
 

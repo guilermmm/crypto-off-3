@@ -238,7 +238,7 @@ public class Database implements Runnable {
         receiveBuffer.length);
     databaseSocket.receive(receiveDatagram);
     var message = B64.decode(new String(receiveDatagram.getData()).trim());
-    Dbg.log(Color.BLUE, "Recebendo mensagem do servidor - \"" + message + "\"");
+    Dbg.log(Color.BLUE, "Recebendo mensagem - \"" + message + "\"");
     return message;
   }
 

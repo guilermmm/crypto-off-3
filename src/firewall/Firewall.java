@@ -67,8 +67,8 @@ public class Firewall implements Runnable {
 
         var protocol = new Protocol(head.split(":")[0], head.split(":")[1], head.split(":")[2]);
 
-        // if (isPermitted(protocol)) {
-        if (true) {
+        if (isPermitted(protocol)) {
+          // if (true) {
           Dbg.log(Color.GREEN,
               "Protocolo permitido: " + protocol.origin + " -> " + protocol.destination + " : " + protocol.action);
           sendMessage(B64.encode(res), Integer.valueOf(head.split(":")[1]));
